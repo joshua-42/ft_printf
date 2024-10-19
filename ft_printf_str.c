@@ -6,7 +6,7 @@
 /*   By: jodougla <jodougla@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 16:49:22 by jodougla          #+#    #+#             */
-/*   Updated: 2024/10/18 17:25:58 by jodougla         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:02:53 by jodougla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -27,7 +27,7 @@ int	ft_putstr(char *str)
 		return (6);
 	}
 	tmp_str = str;
-	while(*tmp_str)
+	while (*tmp_str)
 		tmp_str++;
 	write(1, str, tmp_str - str);
 	return (tmp_str - str);

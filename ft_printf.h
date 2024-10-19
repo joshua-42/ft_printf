@@ -6,7 +6,7 @@
 /*   By: jodougla <jodougla@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 01:19:02 by jodougla          #+#    #+#             */
-/*   Updated: 2024/10/19 15:46:02 by jodougla         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:59:56 by jodougla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -17,6 +17,8 @@
 # include <stdarg.h>
 # include <stdint.h>
 
+# define HEXA_UPPER "0123456789ABCDEF"
+# define HEXA_LOWER "0123456789abcdef"
 # define INT_MIN "-2147483648"
 
 int	ft_printf(const char *str, ...) __attribute__((format(printf, 1, 2)));
@@ -31,8 +33,7 @@ int	ft_putunsigned_nbr(unsigned int nb);
 int	count_num(int nb);
 int	ft_putnbr(int nb);
 int	ft_atoi_hexa(char *str);
-int ft_putptr(unsigned long str);
-int	ft_putnbr_mem(unsigned long nb , int flag);
-
+int	ft_putptr(unsigned long str);
+int	ft_putnbr_mem(unsigned long nb, int flag);
 
 #endif
