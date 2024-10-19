@@ -1,24 +1,37 @@
+#####################################################################
+#																	#
+#		FILES														#
+#																	#
+#####################################################################
+
+SRC_DIR := src
 SRC :=	ft_printf.c \
 		ft_printf_str.c \
 		ft_putnbr.c \
 	  	ft_putnbr_hexa.c \
 		ft_putptr.c \
+SRC := $(SRC:%$(SRC_DIR)/%)
 
-OBJ := $(SRC:.c=.o)
-
-CC := cc
-
-CFLAGS := -Wall -Werror -Wextra
+OBJ_DIR	:= .obj
+OBJS	:= $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 NAME := libftprintf.a
+CC := cc
+CFLAGS := -Wall -Werror -Wextra
+
+#####################################################################
+#																	#
+#			RULES													#
+#																	#
+#####################################################################
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+    $(CC) $(CFLAGS) -c -o $@ $<
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@ar -rc $(NAME) $(OBJ)
-
-%.o : %.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
 
 clean :
 	@rm -f $(OBJ)
